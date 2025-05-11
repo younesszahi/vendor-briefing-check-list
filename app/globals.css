@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 216 71% 24%; /* Amazon Blue #232f3e */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 35 100% 50%; /* Amazon Orange #ff9900 */
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 35 100% 50%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 216 71% 24%; /* Amazon Blue #232f3e */
+    --foreground: 0 0% 98%;
+    --card: 211 39% 23%;
+    --card-foreground: 0 0% 98%;
+    --popover: 216 71% 24%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 216 71% 24%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 35 100% 50%; /* Amazon Orange #ff9900 */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 35 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.signature-canvas {
+  width: 100%;
+  height: 200px;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  background-color: white;
+}
+
+.signature-canvas.dark {
+  background-color: #f0f0f0;
+}
+
+/* Custom animation for form sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Progress bar styles */
+.progress-container {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* Custom styling for the form */
+.form-section {
+  @apply space-y-6 rounded-lg p-6 border border-border bg-card text-card-foreground transition-all duration-300;
+}
+
+.form-section:hover {
+  @apply shadow-md;
+}
+
+.form-section h2 {
+  @apply text-xl font-semibold text-primary-foreground mb-4 pb-2 border-b;
+}
+
+.form-header {
+  @apply bg-primary text-primary-foreground p-4 rounded-t-lg;
+}
+
+.form-footer {
+  @apply sticky bottom-0 bg-background/80 backdrop-blur-sm py-4 border-t border-border;
+}
+
+.checklist-item {
+  @apply flex items-start space-x-2 p-2 rounded-md hover:bg-muted/50 transition-colors;
+}
+
+.signature-container {
+  @apply mt-6 p-4 border border-border rounded-lg bg-white dark:bg-gray-800;
+}
+
+/* PDF styles */
+.pdf-container {
+  font-family: 'Helvetica', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.pdf-header {
+  background-color: #232f3e;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.pdf-section {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.pdf-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #666;
+}
